@@ -1,26 +1,19 @@
 import React from 'react';
 import {StyleSheet, Button, View, Text} from 'react-native';
+import NavigationBottom from './NavigationBottom';
 
-function DetailScreen({navigation}) {
+function DetailScreen({route, navigation}) {
+
+    const {id, description} = route.params;
+
     return (
-        <View style={{flex:1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'green'}}>
+        <View style={{flex:1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#66bb6a'}}>
             <Text>Details Screen</Text>
-
-            <View style={styles.containerButton}>
-                <Button 
-                    title="Atrás"
-                    onPress={() => navigation.goBack()}
-                />
-                <Button 
-                    title="Home"
-                    onPress={() => navigation.navigate('Home')}
-                />
-                <Button 
-                    title="Ir a Detalle"
-                    onPress={() => navigation.push('Details')}
-                />
-            </View>
+            <Text>Tarea: {id}</Text>
+            <Text>Description: {description}</Text>
             
+            <NavigationBottom/>
+
         </View>
     );
 }
@@ -30,7 +23,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center', 
-        backgroundColor: 'gray',
+        backgroundColor: '#98ee99',
 
         margin: 20,
         padding: 5,
